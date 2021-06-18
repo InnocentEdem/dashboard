@@ -14,18 +14,49 @@
        
         <div class="main">
             <div class="side-menu">
-                <div>Dashboard</div>
-                <div>New </div>
-                <div>Remove</div>
-                <div> Quantity</div>
-                <div>Details</div>
+               <a href="./index.html">Dashboard</a>
+               <a href="./new.html">New</a>
+               <a href="./remove.html">Remove</a>
+               <a href="./quantity.html">Quantity</a>
+               <a href="./details.html">Details</a>
             </div>
             <div class="content">
                 <div class="content-header">
                    <h3> Dashboard</h3>
                     <input type="text" placeholder="Search">
+                    <div class="radiobtn">
+                        <input type="radio" checked name = "radio"> <span>Category</span> 
+                        <input type="radio" name = "radio"> <span>Code </span>
+                        <input type="radio" name = "radio"> <span>Name</span>
+                    </div>
                 
                </div>
+               <table>
+                <thead>
+                    <tr class="table-head">
+                     <td><div class="select0">Select</div></td>
+                     <td><div class="serial0">Srl</div></td>
+                     <td><div class="code0">Code</div></td>
+                     <td><div class="category0">Category</div></td>
+                     <td><div class="name0">Name</div></td>                  
+                     <td><div class="description0">Description</div></td>
+                     <td><div class="quantity0">Quantity</div></td>                   
+                     <td><div class="edit1">Edit</div></td> 
+                    </tr>
+                </thead>
+                 <div class="row-template">
+                     <div class="row-0">
+                         <div class="select"></div>
+                         <div class="serial"></div>
+                         <div class="name"></div>
+                         <div class="category"></div>
+                         <div class="description"></div>
+                         <div class="quantity"></div>
+                         <div class="label-code"></div>
+                         <div class="edit"></div>
+                     </div>
+                 </div>
+            </table>
             </div>
         </div>
     </div>
