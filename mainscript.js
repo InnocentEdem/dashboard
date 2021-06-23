@@ -127,14 +127,14 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
     if(indicator==='stockValueByCategory'){
         var clothing_men=0;  var jewelery=0; var electronics=0; var clothing_women=0;
         for(let i=0;i<workingSet.length;i++){
-            if(workingSet.category==="men's clothing"){
-                clothing_men = clothing_men + (+workingSet.quantity * (+workingSet.price))
-            }else if(workingSet.category==="women's clothing"){
-                clothing_women = clothing_women + (+workingSet.quantity * (+workingSet.price))
-            }else if(workingSet.category==="electronics"){
-                electronics=electronics + (+workingSet.quantity * (+workingSet.price))
+            if(workingSet[i].category==="men's clothing"){
+                clothing_men = clothing_men + (+workingSet[i].quantity * (+workingSet[i].price))
+            }else if(workingSet[i].category==="women's clothing"){
+                clothing_women = clothing_women + (+workingSet[i].quantity * (+workingSet[i].price))
+            }else if(workingSet[i].category==="electronics"){
+                electronics=electronics + (+workingSet[i].quantity * (+workingSet[i].price))
             }else{
-                jewelery = jewelery + (+workingSet.quantity * (+workingSet.price))
+                jewelery = jewelery + (+workingSet[i].quantity * (+workingSet[i].price))
             }
         }
        
@@ -142,6 +142,9 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
                 "clothing_women":clothing_women,
                 "jewelery":jewelery,
                 "electronics": electronics,}    
+    }
+    if(indicator==="totalItems"){
+       return workingSet.length
     }
 
     if(indicator==="depletedStocks"){
@@ -181,6 +184,19 @@ function sideBarSummary(){
     })
 }
 sideBarSummary();
+
+function topStatsHandler(){
+    let totalStockValue = statisticsHandler('totalStockValue',"allProducts")
+    let totalCategories = 4;
+    let totalItems = statisticsHandler('totalItems','allProducts')
+    let position = document.querySelectorAll('.main-res')
+    console.log(position)
+    position[0].innerHTML=totalCategories;
+    position[1].innerHTML=totalItems;
+    position[2].innerHTML=totalStockValue
+
+}
+topStatsHandler();
 
 function colorLabel(qty,i){
 
