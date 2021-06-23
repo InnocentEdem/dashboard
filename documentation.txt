@@ -1,0 +1,2 @@
+ functions
+ alertHandler() : sends alerts to window with backdrop

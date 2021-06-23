@@ -1,6 +1,9 @@
 *{
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    
     
 }
 
@@ -8,13 +11,71 @@
    
     background-color: #0c2556;
     position:fixed;
-    overflow-y:scroll;
+   
     overflow-x:hidden;
     width:100%;
     height:100%;
     top:0px;
     left:0px;
 }
+#show-info,
+#alert-with-input
+{
+  position: absolute;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+  color:black;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  width: 20%;
+  height: 10rem;
+  top: 30vh;
+  left: 40%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  
+  text-align: center;
+
+}
+#okay-and-nothing{
+display: inline-block;
+width: 4rem;
+padding: 0.3rem;
+margin: 1rem 2rem;
+font-weight: bold;
+cursor: pointer;
+}
+.do-this{
+display: inline-block;
+width: 4rem;
+padding: 0.3rem;
+margin: 2rem 2rem;
+font-weight: bold;
+cursor: pointer;
+}
+
+#info-p,
+#info-input-p{
+    display: block;
+    margin-top: 1rem;
+}
+#info-p{
+    margin-bottom: 2rem;
+}
+
+.back-drop {
+    position: fixed;
+    width: 100%;
+    height: 100rem;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .75);
+    z-index: 10;
+    pointer-events: auto;
+    display: none;
+  }
+  
+  
 
 .main{
     display: flex;
@@ -35,14 +96,17 @@
     border: solid 1px #008baa;
     float: left;
     width: 15%;
+    overflow: hidden61j;
 }
 .content{
     background-color: white;
     width: 100%;
     height: 97%;
-  
+    box-shadow: black;
     margin-top: 1rem;
     margin-left: 1rem;
+    color: black;
+   overflow-y:scroll;
    
 }
 .side-menu>a{
@@ -54,21 +118,50 @@
     color: white;
     transition: 0.7s;
 }
-.side-menu>div:hover{
+.side-menu>a:hover{
     margin-right:0 ;
     margin-left:2rem ;
     cursor: pointer;
     transition: 0.7s;
     
 }
+.summary{
+    color: ivory;
+    margin: 0.4rem;
+   
+}
+.sum-header,
+.sum-title{
+    text-align: center;
+}
+.sum-header{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-decoration: underline;
+    padding: 0.3rem;
+}
+.sum-title{
+    font-weight: bold;
+    margin: 1rem 0.5rem 0.5rem 0.5rem;
+    text-decoration: underline;
+}
+
 .content-header{
     padding: 1rem;
     margin-left: 1rem;
     font-size: 1.5rem;
     font-weight: bolder;
     color: #008baa;
-    margin-bottom: 10rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
     
+}
+.graphs{
+
+    margin-bottom: 2rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 .content-header>h3,
@@ -94,28 +187,166 @@ a{
     color: white;
     margin: 0;
     padding: 0%;
-    width: rem;
+    width:3 rem;
 }
-.serial,
-.quantity,
-.select{
-    width: 1rem;
+
+.seriala,
+.quantitya,
+.selecta{
+    width: 1.8rem;
 }
-.name,
-.category,
-.code,
-.edit{
-    width:2rem;
+.namea,
+.categorya,
+.codea,
+.edita,
+.pricea{
+    width:1rem;
 }
-.description{
+.descriptiona{
 width: 3rem;
+margin: 0%;
+padding: 0%;
+}
+.edit{
+    cursor: pointer;
+}
+.edit>a>button{
+    color: white;
+    background-color:#008baa ;
+    border: none;
+    border-radius: 5px;
+    font-size: x-small;
+    padding: 0.2rem;
 }
 table{
-    padding: 1rem;
+    padding: 0.1rem;
     width: 100%;
     text-align: left;
+    border-collapse: collapse;
+    color: #0d2757 ;
+}
+.rows{
+    cursor: pointer;
+}
+tr:nth-of-type(even){
+    background-color: rgba(0, 139, 170, 0.062);
 }
 thead{
     font-weight: bolder;
 }
+table,th,td{
+    padding: 0.7rem;
+    margin: 0.3rem;
+}
+.label{
+    width: 1rem;
+    height:0.5rem;
+    
+}
+.label-red{
+background-color: red;
+width: 1rem;
+height:0.5rem;
+}
+.label-gold{
+background-color: gold;
+width: 1rem;
+height:0.5rem;
+}
+.label-green{
+background-color: green;
+width: 1rem;
+height:0.5rem;
+}
+
+.visibility{
+    display: block;
+}
+.take-input{
+    margin-top: 5rem;
+}
+
+.take-input>div{
+    
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+#item-name,
+#item-qty,
+#item-price,
+#category-select{
+    margin-right: 20.8rem;
+    float: right;
+    width: 20rem;
+    padding: 0.5rem 0.5rem 0rem 0.5rem;
+}
+label{
+  margin-left: 17rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+}
+.add-new-item{
+    text-align: center;
+    margin-top: 2rem;
+    color:#008baa ;
+}
+.add-new-item>button{
+    margin-left: 8rem;
+    padding: 1rem;
+    border: solid 1px #008baa;
+    box-shadow:#008baa 5px 5px ;
+    color: #008baa;
+    width: 10rem;
+    cursor: pointer;
+}
+.add-new-item>button:hover{
+    background-color: rgba(0, 0, 0, 0.123);
+}
+#description{
+    margin-left: 7rem;
+
+    
+}
+.category-info{
+    text-align: center;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    color: red;
+}
+.details-container{
+    display: flex; 
+    width: 70rem;
+    margin-top: 6rem;
+}
+.other-info,
+.desc-image{
+     
+    width: 20rem;
+   
+   /* border: solid;*/
+    margin: 3rem;
+    margin-top: 0rem;
+    top: 0;
+}
+.de-image{
+    margin-top: 0%;
+    width:20vw;
+}
+.des-title{
+    text-align: center;
+    height: 10vh;
+    color:#174292;
+    margin-top: 0rem;
+}
+.des-content{
+    color: black;
+    margin-bottom: 0.5rem;
+}
+.des-description{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+  
+
 
