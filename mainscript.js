@@ -106,11 +106,11 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
     if(indicator==="quantityByCategory"){
         var clothing_men=0;  var jewelery=0; var electronics=0; var clothing_women=0;
         for(let i=0;i<workingSet.length;i++){
-            if(workingSet.category==="men's clothing"){
+            if(workingSet[i].category==="men's clothing"){
                 clothing_men=clothing_men + 1
-            }else if(workingSet.category==="women's clothing"){
+            }else if(workingSet[i].category==="women's clothing"){
                 clothing_women = clothing_women + 1
-            }else if(workingSet.category==="electronics"){
+            }else if(workingSet[i].category==="electronics"){
                 electronics=electronics + 1
             }else{
                 jewelery = jewelery + 1
@@ -336,3 +336,38 @@ function itemEventsHandler(eventString){
 }
 
 
+
+
+// Load the Visualization API and the corechart package.
+google.charts.load('current', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+
+// Callback that creates and populates a data table,
+// instantiates the pie chart, passes in the data and
+// draws it.
+function drawChart() {
+    categoryObj = statisticsHandler('quantityByCategory','allProducts')
+    console.log(categoryObj)
+  // Create the data table.
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Categories');
+  data.addColumn('number', 'Quantity');
+  data.addRows([
+    ['Clothing-Men', categoryObj.clothing_men],
+    ['Clothing-Women',categoryObj.clothing_women],
+    ['Jewelery', categoryObj.jewelery],
+    ['Electronics', categoryObj.electronics],
+   
+  ]);
+
+  // Set chart options
+  var options = {'title':'Quantities by Category',
+                 'width':550,
+                 'height':180};
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.PieChart(document.getElementById('chart-div'));
+  chart.draw(data, options);
+}

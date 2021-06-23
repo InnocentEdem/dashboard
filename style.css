@@ -153,15 +153,32 @@ cursor: pointer;
     font-size: 1.5rem;
     font-weight: bolder;
     color: #008baa;
-    margin-bottom: 3rem;
+   
     margin-top: 1rem;
     
 }
 .graphs{
-
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
+}
+#chart-div{
+    display: inline-block;
+    border: solid 1px #008baa;
+    width: 560px;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.other-charts{
+    display: inline-block;
+    border: solid 1px #008baa;
+    width: 440px;
+    height:196.5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-left:1rem;
+    background-color: #008baa15;
 }
 
 .content-header>h3,
@@ -187,7 +204,7 @@ a{
     color: white;
     margin: 0;
     padding: 0%;
-    width:3 rem;
+    width:9.5rem;
 }
 
 .seriala,
