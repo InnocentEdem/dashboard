@@ -17,8 +17,8 @@ function loadDetails(forDetailsPage){
     outStr += ' ' + parts[i];
     
     //every tenth word, add a new-line. Change this to '<br/>' if you want html.
-    if ((i + 1) % 6 === 0) {
-      outStr += "\n";
+    if ((i + 1) % 7 === 0) {
+      outStr += "<br>";
     }
   }
     details[4].innerHTML=outStr;

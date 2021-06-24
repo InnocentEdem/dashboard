@@ -1,4 +1,3 @@
-
 const contentTag = document.querySelector(".main");
 const infoWithOption=document.getElementById('alert-with-input');
 var code;
@@ -185,18 +184,6 @@ function sideBarSummary(){
 }
 sideBarSummary();
 
-function topStatsHandler(){
-    let totalStockValue = statisticsHandler('totalStockValue',"allProducts")
-    let totalCategories = 4;
-    let totalItems = statisticsHandler('totalItems','allProducts')
-    let position = document.querySelectorAll('.main-res')
-    console.log(position)
-    position[0].innerHTML=totalCategories;
-    position[1].innerHTML=totalItems;
-    position[2].innerHTML=totalStockValue
-
-}
-topStatsHandler();
 
 function colorLabel(qty,i){
 
@@ -247,8 +234,8 @@ function htmlGenerator(i){  //used to generate new rows
                         <td class="rows"><div class="description item${i}"></div></td>
                         <td class="rows"><div class="label-code item${i}">price</div></td>
                         <td class="rows"><div class="quantity item${i}"></div></td>
-                        <td class="rows"><div class=" item${i}"><div class="label"></div></div></td> 
-                        <td><div><button class="edit" id="edit${i}">Edit</button></div></td>`
+                        <td><div class=" item${i}"><div class="label"></div></div></td> 
+                        <td><div><i id="delete${i}" class="fa fa-trash delete" aria-hidden="true"></i></div></td>`
 document.querySelector(`.row-${i}`).innerHTML = createRowContent;
 
 }
@@ -299,7 +286,7 @@ function alertHandler(reqres,message,from,token){ //reqres is boolean, message i
                 element.addEventListener('click', (e)=>{
                     var result = e.target.getAttribute('name');
                     console.log(code)
-                    window[sender]("clear",undefined,result,token);
+                    window[sender](undefined,result,token);
                     console.log(sender)
                    document.getElementById('alert-with-input').remove();
                    document.querySelector('.back-drop').className = ('back-drop')
@@ -339,19 +326,6 @@ function search(){
     
 }
 
-const quickEditButtons=document.querySelectorAll(".edit")
-quickEditButtons.forEach(element => {
-    element.addEventListener('click',(e)=>{
-        thisEvent=e.target.getAttribute("id").match(/\d+/g,'')
-        quickEditHandler(thisEvent)
-        console.log(thisEvent)
-    })
-});
-
-function quickEditHandler(eventString){
-    localStorage.setItem("forEditPage",JSON.stringify(eventString))
-    location.assign("./edit.html")
-}
 
 
 
@@ -368,39 +342,34 @@ function itemEventsHandler(eventString){
   location.assign("./details.html")
 }
 
+const toDelete = document.querySelectorAll(".delete");
+toDelete.forEach(element => {
+    element.addEventListener('click',(e)=>{
+        let thisEvent=e.target.getAttribute("id").match(/\d+/g,'')
+    let code=securityToken()
+    let eventInfo=[thisEvent,code]
+    localStorage.setItem("forDeleteFunction",JSON.stringify(eventInfo));
+    
+        alertHandler(true,"Confirm Delete. Warning: Irreversible!!","deleteFunction",code)
+       
+    })
+});
 
+function deleteFunction(eventId,response,token){
+   let eventInfo = JSON.parse(localStorage.getItem("forDeleteFunction"));
+   if(response==="okay"){
+       let index=eventInfo[0][0];
+       let allProductsPlus=JSON.parse(localStorage.getItem("allProductsPlus"))
+       allProductsPlus.splice(index,1);
+       localStorage.setItem("allProductsPlus",(JSON.stringify(allProductsPlus)))
+       alertHandler(false, "Delete Operation Successful!")
+       window.location.reload()
+   }
+   else {
+       alertHandler(false,"Delete Operation Cancelled!")
+       window.location.reload()
+    }
 
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart']});
-
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
-    categoryObj = statisticsHandler('quantityByCategory','allProducts')
-    console.log(categoryObj)
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Categories');
-  data.addColumn('number', 'Quantity');
-  data.addRows([
-    ['Clothing-Men', categoryObj.clothing_men],
-    ['Clothing-Women',categoryObj.clothing_women],
-    ['Jewelery', categoryObj.jewelery],
-    ['Electronics', categoryObj.electronics],
-   
-  ]);
-
-  // Set chart options
-  var options = {'title':'Quantities by Category',
-                 'width':550,
-                 'height':180};
-
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('chart-div'));
-  chart.draw(data, options);
 }
+
+

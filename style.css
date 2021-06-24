@@ -274,17 +274,20 @@ table,th,td{
 .label-red{
 background-color: red;
 width: 1rem;
-height:0.5rem;
+height:1rem;
+border-radius: 50%;
 }
 .label-gold{
 background-color: gold;
 width: 1rem;
-height:0.5rem;
+height:1rem;
+border-radius: 50%;
 }
 .label-green{
 background-color: green;
 width: 1rem;
-height:0.5rem;
+height:1rem;
+border-radius: 50%;
 }
 
 .visibility{
@@ -361,20 +364,41 @@ label{
 }
 .des-title{
     text-align: center;
-    height: 10vh;
+    height: 6vh;
     color:#174292;
     margin-top: 0rem;
+    margin-bottom: 0;
+    padding-bottom: 0%;
 }
 .des-content{
     color: black;
     margin-bottom: 0.5rem;
+    width: 20rem;
 }
-.des-description{
-    text-align: center;
-    margin-top: 1rem;
+.add-changes{
+  text-align: center;
+
+}
+#add-changes{
+    padding: 1rem;
+    border: solid 1px #008baa;
+    box-shadow:#008baa 5px 5px ;
+    color: #008baa;
+    width: 10rem;
+    cursor: pointer;
 }
 
-
+#add-changes:hover{
+    background-color: rgba(0, 0, 0, 0.123);
+}
+.fa{
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer;
+}
+.fa:hover{
+    color: brown;
+}
   
 
 
