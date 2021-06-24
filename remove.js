@@ -2,7 +2,26 @@ const contentTag = document.querySelector(".main");
 const infoWithOption=document.getElementById('alert-with-input');
 var code;
 var NameIt;
+var infoArray=[];
 
+function logger(msg){
+   
+    anEvent={}
+    var timeStamp = Number(new Date());
+    anEvent['timeStamp']= timeStamp;
+    anEvent["msg"]=msg;
+    
+    if(!localStorage.getItem("events")){
+        infoArray.push(anEvent);
+        localStorage.setItem("events",(JSON.stringify(infoArray)));
+    }
+    else{
+    let events=JSON.parse(localStorage.getItem("events"));
+    events.push(anEvent);
+    localStorage.setItem("events",(JSON.stringify(events)));
+    }
+     
+}
 
 
 //download and save json data
@@ -148,14 +167,13 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
 
     if(indicator==="depletedStocks"){
         var depletedStocksArray=[];
-        console.log(workingSet)
         for(let i=0;i<workingSet.length;i++){
             if(+workingSet[i].quantity<1){
                 
                 depletedStocksArray.push(workingSet[i].title)
             }
             }
-            console.log(depletedStocksArray)
+           
         if(depletedStocksArray.length>0){
             return depletedStocksArray;
         }else{
@@ -174,7 +192,7 @@ function sideBarSummary(){
     sideBarCategories=document.querySelector('.sum-categories')
     sideBarTotal.innerHTML=`Total Stock Value: $ ${statisticsHandler("totalStockValue","allProducts")}`
     depletedResponse=statisticsHandler("depletedStocks","allProducts")
-    console.log(depletedResponse)
+    
     depletedResponse.forEach((item,index)=>{
         let div=document.createElement('li');
         div.innerHTML=item.substring(0,18);
@@ -214,7 +232,6 @@ function tableFillHandler(){     //fills the table with data from localstorage
         rowList[5].innerHTML=allProductsPlus[i].price;
         rowList[6].innerHTML=allProductsPlus[i].quantity;
         rowList[7].className= colorLabel(allProductsPlus[i].quantity,i)
-        console.log(allProductsPlus[i].quantity)
         
      }
 }
@@ -363,10 +380,12 @@ function deleteFunction(eventId,response,token){
        allProductsPlus.splice(index,1);
        localStorage.setItem("allProductsPlus",(JSON.stringify(allProductsPlus)))
        alertHandler(false, "Delete Operation Successful!")
+       logger("Item delete successful")
        window.location.reload()
    }
    else {
        alertHandler(false,"Delete Operation Cancelled!")
+       logger('canceled delete attempt')
        window.location.reload()
     }
 

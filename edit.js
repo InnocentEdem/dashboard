@@ -1,11 +1,28 @@
 
  const contentTag = document.querySelector(".main");
  const infoWithOption=document.getElementById('alert-with-input');
+ let infoArray=[];
  let forEditPage = JSON.parse(localStorage.getItem("forEditPage"))
 let allProductsPlus = JSON.parse(localStorage.getItem("allProductsPlus"))
-console.log(allProductsPlus[+forEditPage].image)
+function logger(msg){
+   
+    anEvent={}
+    var timeStamp = Number(new Date());
+    anEvent['timeStamp']= timeStamp;
+    anEvent["msg"]=msg;
+    
+    if(!localStorage.getItem("events")){
+        infoArray.push(anEvent);
+        localStorage.setItem("events",(JSON.stringify(infoArray)));
+    }
+    else{
+    let events=JSON.parse(localStorage.getItem("events"));
+    events.push(anEvent);
+    localStorage.setItem("events",(JSON.stringify(events)));
+    }
+     
+}
 function loadDetails(forEditPage){
-    console.log(forEditPage)
     const details = document.querySelectorAll('.des-content')
     document.querySelector('.de-image').src=allProductsPlus[+forEditPage].image
     details[0].value=allProductsPlus[+forEditPage]['title']
@@ -59,6 +76,7 @@ function editHandler(response,token){
         }
         else {
             alertHandler(false,"Changes not saved")
+            logger("Failed edit attempt ")
             return
         }
         }
@@ -79,6 +97,7 @@ function editHandler(response,token){
          }
          allProductsPlus[changeIndex]=newObj;
          localStorage.setItem("allProductsPlus",JSON.stringify(allProductsPlus))
+         logger(" Item edit successful")
          location.reload()
          alertHandler(false,"New Changes Saved Successfully")
     }

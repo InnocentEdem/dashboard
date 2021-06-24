@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
@@ -14,14 +15,25 @@
     <div class="container">
         <div class="back-drop"></div>
        
-        <div class="main">         
+        <div class="main">
+            <div class="side-responsive">
+                <div> <i class="fa fa-bars res-close"></i></div> 
+            <div class="side-responsive-fa">
+                <div> <i class="fa fa-dashboard mres" onclick="window.location.assign('index.html')"></i></div>
+                <div> <i class="fa fa-plus mres" onclick="window.location.assign('new.html')"></i></div>
+                <div><i class="fa fa-remove mres" onclick="window.location.assign('remove.html')"></i></div>
+                <div><i class="fa fa-edit mres" onclick="window.location.assign('quantity.html')"></i></div>
+                <div><i class="fa fa-commenting-o mres" onclick="window.location.assign('message.html')" ></i></div>    
+            </div>   
+            </div>     
             <div class="side-menu">
+                <div class="hamburg"><i class="fa fa-bars res-open"  ></i></div>
                <a href="./index.html">Dashboard</a>
                <a href="./new.html">New</a>
                <a href="./remove.html">Remove</a>
                <a href="./quantity.html">Quantity</a>
-               <a href="./details.html">Details</a>
-               <div class="summary">
+               <a href="./quantity.html">Message Center</a>
+               <div class="summary"> 
                    <div class="sum-header">Quick Summary</div>
                    <div class="total-value"></div>
                    <div class="sum-title">Depleted Stocks List</div>
@@ -33,12 +45,13 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Dashboard</h3>
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search"><i class="fa fa-search"></i>
                     <div class="radiobtn">
                         <input type="radio" checked name = "radio"> <span>Category</span> 
-                        <input type="radio" name = "radio"> <span>Code </span>
                         <input type="radio" name = "radio"> <span>Name</span>
                     </div>
+                    <i class="fa fa-bell-o"></i>
+                    
                 
                </div>
                <div class="graphs">

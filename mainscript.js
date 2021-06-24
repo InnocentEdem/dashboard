@@ -3,6 +3,8 @@ const contentTag = document.querySelector(".main");
 const infoWithOption=document.getElementById('alert-with-input');
 var code;
 var NameIt;
+infoArray=[]
+
 
 
 
@@ -34,14 +36,35 @@ var NameIt;
       }
       allProductsPlus=allProducts;
       lstorageReadWrite(false,"allProductsPlus",allProductsPlus)
+      location.reload();
+      
+
    }
  }
 
 //conditional data fetch from API!!!
  if(!lstorageReadWrite(true,"allProductsPlus")){  //Make sure API loads only once
+     logger("APi fetch successful")
      fetchData();
  }
-
+ function logger(msg){
+   
+    anEvent={}
+    var timeStamp = Number(new Date());
+    anEvent['timeStamp']= timeStamp;
+    anEvent["msg"]=msg;
+    
+    if(!localStorage.getItem("events")){
+        infoArray.push(anEvent);
+        localStorage.setItem("events",(JSON.stringify(infoArray)));
+    }
+    else{
+    let events=JSON.parse(localStorage.getItem("events"));
+    events.push(anEvent);
+    localStorage.setItem("events",(JSON.stringify(events)));
+    }
+     
+}
 
 //read/write handler below!!!
 function lstorageReadWrite(readOrWrite,name,content,token){   // readOrWrite is boolean, true=read, false=write ,delete and clear means same
@@ -404,3 +427,18 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('chart-div'));
   chart.draw(data, options);
 }
+
+let resOpen = document.querySelector('.res-open')
+let resClose = document.querySelector('.res-close')
+
+resOpen.addEventListener("click",(e)=>{
+    document.querySelector('.side-responsive').style.display="block"
+    document.querySelector('.side-menu').style.display="none"
+})
+
+resClose.addEventListener('click',(e)=>{ 
+        document.querySelector('.side-responsive').style.display='none'
+        document.querySelector('.side-menu').style.display='block'
+})
+
+

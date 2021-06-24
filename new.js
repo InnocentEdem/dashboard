@@ -3,6 +3,25 @@
  const infoWithOption=document.getElementById('alert-with-input');
  const btn = document.querySelector("#add-button");
  const categoryInfo=document.querySelector(".category-info")
+ let infoArray=[]
+ function logger(msg){
+   
+    anEvent={}
+    var timeStamp = Number(new Date());
+    anEvent['timeStamp']= timeStamp;
+    anEvent["msg"]=msg;
+    
+    if(!localStorage.getItem("events")){
+        infoArray.push(anEvent);
+        localStorage.setItem("events",(JSON.stringify(infoArray)));
+    }
+    else{
+    let events=JSON.parse(localStorage.getItem("events"));
+    events.push(anEvent);
+    localStorage.setItem("events",(JSON.stringify(events)));
+    }
+     
+}
 
  function newEntryHandler(response,token){
 
@@ -53,6 +72,7 @@
         }
         else {
             alertHandler(false,"Changes not saved")
+            logger("Failed save new item attempt")
             return
         }
         }
@@ -71,6 +91,7 @@
          }
          allProductsPlus.push(newObj);
          localStorage.setItem("allProductsPlus",JSON.stringify(allProductsPlus))
+         logger("New item successfully added")
          location.reload()
          alertHandler(false,"New Changes Saved Successfully")
     }

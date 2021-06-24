@@ -37,6 +37,31 @@
   text-align: center;
 
 }
+.side-responsive>div>i{
+color: white;
+font-size: 2.1rem;
+margin-left: 0.3rem;
+}
+.side-responsive-fa>div>i{
+    color:white;
+    font-size: 2.5rem;
+    
+}
+.side-responsive-fa{
+    margin-top: 1.5rem;
+    
+}
+.side-responsive-fa>div{
+    margin: 1.7rem;
+    margin-left: 0%;
+}
+.side-responsive{
+    margin-top: 4.6rem;
+    display: none;
+    transition: display 1s;
+  
+}
+
 #okay-and-nothing{
 display: inline-block;
 width: 4rem;
@@ -91,12 +116,21 @@ cursor: pointer;
     white-space: nowrap;
     border-radius: 5px;
 }
+.hamburg{
+    text-align: center;
+    
+}
+.hamburg>i{
+    color: white;
+}
 .side-menu{
-    margin-top: 1rem;
-    border: solid 1px #008baa;
+    margin-top: 5rem;
+    /*border: solid 1px #008baa;*/
     float: left;
     width: 15%;
-    overflow: hidden61j;
+    overflow: hidden;
+    display:block;
+    transition: display 1s;
 }
 .content{
     background-color: white;
@@ -293,6 +327,9 @@ border-radius: 50%;
 .visibility{
     display: block;
 }
+.no-visibility{
+    display: none;
+}
 .take-input{
     margin-top: 5rem;
 }
@@ -400,5 +437,7 @@ label{
     color: brown;
 }
   
-
-
+.messages{
+    margin: 10rem;
+    margin-top: 4rem;
+}
