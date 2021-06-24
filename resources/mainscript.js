@@ -373,7 +373,7 @@ quickEditButtons.forEach(element => {
 
 function quickEditHandler(eventString){
     localStorage.setItem("forEditPage",JSON.stringify(eventString))
-    location.assign("./edit.html")
+    location.assign("./resources/edit.html")
 }
 
 
