@@ -13,7 +13,7 @@ msgContainer=document.querySelector('.the-body')
         <td>${date}<td></td>${events[i].msg}</td>
        `
        row.innerHTML=rowElement
-       msgContainer.append(row)
+       msgContainer.insertAdjacentElement('afterbegin',row)
       }
    }
       
