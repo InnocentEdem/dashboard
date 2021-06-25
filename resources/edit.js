@@ -4,6 +4,7 @@
  let infoArray=[];
  let forEditPage = JSON.parse(localStorage.getItem("forEditPage"))
 let allProductsPlus = JSON.parse(localStorage.getItem("allProductsPlus"))
+
 function logger(msg){
    
     anEvent={}
@@ -99,7 +100,7 @@ function editHandler(response,token){
          allProductsPlus[changeIndex]=newObj;
          localStorage.setItem("allProductsPlus",JSON.stringify(allProductsPlus))
          logger(" Item edit successful")
-         location.reload()
+         location.assign("../index.html")
          alertHandler(false,"New Changes Saved Successfully")
     }
 }

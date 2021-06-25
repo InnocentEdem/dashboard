@@ -467,3 +467,11 @@ label{
    text-align: center; 
    cursor: pointer;
 }
+.stock-out{
+    margin-left: 1rem;
+    color:white;
+    background-color:red;
+    padding:.2rem;
+    display:none;
+    width:15rem;
+}

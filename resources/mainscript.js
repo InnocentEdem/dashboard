@@ -3,7 +3,7 @@ const contentTag = document.querySelector(".main");
 const infoWithOption=document.getElementById('alert-with-input');
 var code;
 var NameIt;
-infoArray=[]
+infoArray=[""]
 
 
 
@@ -45,9 +45,12 @@ infoArray=[]
 //conditional data fetch from API!!!
  if(!lstorageReadWrite(true,"allProductsPlus")){  //Make sure API loads only once
      logger("APi fetch successful")
+     let alertCounter=[0]
+     localStorage.setItem('alertCounter',JSON.stringify(alertCounter))
      fetchData();
  }
- function logger(msg){
+
+ function logger(msg){          //Activity Logger
    
     anEvent={}
     var timeStamp = Number(new Date());
@@ -177,16 +180,21 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
         console.log(workingSet)
         for(let i=0;i<workingSet.length;i++){
             if(+workingSet[i].quantity<1){
-                
+
                 depletedStocksArray.push(workingSet[i].title)
             }
             }
             console.log(depletedStocksArray)
         if(depletedStocksArray.length>0){
+            let stockOut = document.querySelector(".stock-out");
+            stockOut.style.display="block";
+            stockOut.innerHTML=`${depletedStocksArray.length} items are out of stock!`
             return depletedStocksArray;
         }else{
             depletedStocksArray=[];
             depletedStocksArray.push("All stocks High")
+            let stockOut = document.querySelector(".stock-out");
+            stockOut.style.display="none";
             return depletedStocksArray;
         }
         
@@ -446,17 +454,19 @@ resClose.addEventListener('click',(e)=>{
 
 function displayAlert(count){
     let counter;
-    if (count !==1){counter=0;}
+    if (count !==1){counter=0
  
- if(!JSON.parse(localStorage.getItem('alertCounter'))){
+ if(!localStorage.getItem('alertCounter')){
  
   document.querySelector('.bell-back').innerHTML=counter;
   localStorage.setItem('alertCounter',JSON.stringify(counter))
  }else{
-     alertCount= +JSON.parse(localStorage.getItem('alertCounter'))+counter;
+     savedCount = JSON.parse(localStorage.getItem('alertCounter'));
+     alertCount= +savedCount + counter;
      document.querySelector('.bell-back').innerHTML=alertCount;
      localStorage.setItem('alertCounter',JSON.stringify(alertCount))
  }
 
+}
 }
 displayAlert()
