@@ -272,7 +272,7 @@ padding: 0%;
 .edit{
     cursor: pointer;
 }
-.edit>a>button{
+.edit{
     color: white;
     background-color:#008baa ;
     border: none;
