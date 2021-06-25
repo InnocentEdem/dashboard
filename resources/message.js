@@ -16,5 +16,11 @@ msgContainer=document.querySelector('.the-body')
        msgContainer.insertAdjacentElement('afterbegin',row)
       }
    }
-      
+   function resetAlert(){
+        document.querySelector('.bell-back').innerHTML='0'
+        let alertCount=0
+        localStorage.setItem('alertCounter',JSON.stringify(alertCount)) 
+    
+}
+      resetAlert()
    

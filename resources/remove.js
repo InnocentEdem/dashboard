@@ -20,6 +20,7 @@ function logger(msg){
     events.push(anEvent);
     localStorage.setItem("events",(JSON.stringify(events)));
     }
+    displayAlert(1)
      
 }
 
@@ -392,3 +393,19 @@ function deleteFunction(eventId,response,token){
 }
 
 
+function displayAlert(count){
+    let counter;
+    if (count !==1){counter=0;}else counter=1;
+ 
+ if(!JSON.parse(localStorage.getItem('alertCounter'))){
+ 
+  document.querySelector('.bell-back').innerHTML=counter;
+  localStorage.setItem('alertCounter',JSON.stringify(counter))
+ }else{
+     alertCount= +JSON.parse(localStorage.getItem('alertCounter'))+counter;
+     document.querySelector('.bell-back').innerHTML=alertCount;
+     localStorage.setItem('alertCounter',JSON.stringify(alertCount))
+ }
+
+}
+displayAlert()

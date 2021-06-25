@@ -187,7 +187,7 @@ cursor: pointer;
     font-size: 1.5rem;
     font-weight: bolder;
     color: #008baa;
-   
+    position: relative;
     margin-top: 1rem;
     
 }
@@ -440,4 +440,30 @@ label{
 .messages{
     margin: 10rem;
     margin-top: 4rem;
+}
+.fa-search{
+    position: absolute;
+  
+    left: 37rem;
+    top: 1.2rem;
+    color: rgba(128, 128, 128, 0.452);
+}
+.fa-bell-o{
+    margin: 0.2 rem;
+    color:#174292 ;
+    margin-left: 15rem;
+}
+.bell-back{
+    display: inline-block;
+    position: absolute;
+    left: 64.2rem;
+    top: 0.5rem;
+   border: solid 2px;
+   padding: .3rem;
+   border-radius: 50%;
+   width: 1.8rem;
+   height: 1.8rem;
+   color: red;
+   text-align: center; 
+   cursor: pointer;
 }
