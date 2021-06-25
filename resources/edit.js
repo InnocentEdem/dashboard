@@ -175,16 +175,19 @@ function securityToken(){   //generate 5 digit code for secure local storage lea
     }
     return CodeSaverArray.join("");
 }
-function displayAlert(count){
+
+
+function displayAlert(count){       //display alert and counter
     let counter;
-    if (count !==1){counter=0;}
+    if (count !==1){counter=0}else {counter=1}
  
  if(!JSON.parse(localStorage.getItem('alertCounter'))){
  
   document.querySelector('.bell-back').innerHTML=counter;
   localStorage.setItem('alertCounter',JSON.stringify(counter))
  }else{
-     alertCount= +JSON.parse(localStorage.getItem('alertCounter'))+counter;
+     savedCount = JSON.parse(localStorage.getItem('alertCounter'));
+     alertCount= +savedCount + counter;
      document.querySelector('.bell-back').innerHTML=alertCount;
      localStorage.setItem('alertCounter',JSON.stringify(alertCount))
  }

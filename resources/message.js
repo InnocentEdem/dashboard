@@ -4,7 +4,7 @@ msgContainer=document.querySelector('.the-body')
         
      let events=JSON.parse(localStorage.getItem('events'))
      console.log(events)
-      for(let i=0;i<events.length;i++){
+      for(let i=1;i<events.length;i++){
           console.log(events[i])
           var timestamp = events[i]['timeStamp']
           var date = new Date(timestamp);
