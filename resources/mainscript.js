@@ -188,7 +188,7 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
         if(depletedStocksArray.length>0){
             let stockOut = document.querySelector(".stock-out");
             stockOut.style.display="block";
-            stockOut.innerHTML=`${depletedStocksArray.length} items are out of stock!`
+            stockOut.innerHTML=`${depletedStocksArray.length} item(s) are out of stock!`
             return depletedStocksArray;
         }else{
             depletedStocksArray=[];
@@ -273,7 +273,7 @@ function htmlGenerator(i){  //used to generate new rows
     newRow.className = ' row-'+ i;
     document.querySelector('.row-template').appendChild(newRow);
 
-    createRowContent = `<td class="rows"><input type="checkbox" class="check item${i}"></td>
+    createRowContent = `<td class="check"><input type="checkbox" class="check item${i}"></td>
                         <td class="rows"><div class="label-code item${i}"></div></td>
                         <td class="rows"><div class="category item${i}"></div></td>
                         <td class="rows"><div class="name item${i}"></div></td>
@@ -470,3 +470,5 @@ function displayAlert(count){
 }
 }
 displayAlert()
+
+let checks = document.querySelectorAll('check')
