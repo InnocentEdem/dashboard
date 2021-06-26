@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./resources/style.css">
@@ -18,12 +19,12 @@
         <div class="main">
             <div class="side-responsive">
                 <div> <i class="fa fa-bars res-close"></i></div> 
-            <div class="side-responsive-fa">
+                <div class="side-responsive-fa">
                 <div> <i class="fa fa-dashboard mres" onclick="window.location.assign('resources/index.html')"></i></div>
                 <div> <i class="fa fa-plus mres" onclick="window.location.assign('resources/new.html')"></i></div>
                 <div><i class="fa fa-remove mres" onclick="window.location.assign('resources/remove.html')"></i></div>
                 <div><i class="fa fa-commenting-o mres" onclick="window.location.assign('resources/message.html')" ></i></div>    
-            </div>   
+                </div>   
             </div>     
             <div class="side-menu">
                 <div class="hamburg"><i class="fa fa-bars res-open"  ></i></div>
@@ -43,14 +44,15 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Dashboard</h3>
-                    <input type="search" placeholder="Search"><i class="fa fa-search"></i>
+                    <input type="search" placeholder="Search" id="search"><i class="fa fa-search"></i>
                     <div class="radiobtn">
                         <input type="radio" checked name = "radio"> <span>Category</span> 
                         <input type="radio" name = "radio"> <span>Name</span>
                     </div>
+                    <div class="alerts">
                     <i class="fa fa-bell-o"onclick="window.location.assign('./resources/message.html')"></i>  
                     <span class ="bell-back" onclick="window.location.assign('./resources/message.html')">0</span>
-                    
+                    </div>
                     
                 
                </div>
@@ -82,9 +84,10 @@
                      <tr class="row-">
                          <td><div class="selectb"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
                          <td><div class="serial"></div></td>
-                         <td><div class="name"></div></td>
                          <td><div class="category"></div></td>
+                         <td><div class="name"></div></td>
                          <td><div class="description"></div></td>
+                         <td></td>
                          <td><div class="quantity"></div></td>
                          <td><div class="label-code"></div></td>
                          <td><div class="edit1"></div></td>

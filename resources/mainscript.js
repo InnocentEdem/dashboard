@@ -176,15 +176,14 @@ function statisticsHandler(indicator,dataSet){ //choose the dataset for the calc
     }
 
     if(indicator==="depletedStocks"){
-        var depletedStocksArray=[];
-        console.log(workingSet)
+        var depletedStocksArray=[]; 
         for(let i=0;i<workingSet.length;i++){
             if(+workingSet[i].quantity<1){
 
                 depletedStocksArray.push(workingSet[i].title)
             }
             }
-            console.log(depletedStocksArray)
+           
         if(depletedStocksArray.length>0){
             let stockOut = document.querySelector(".stock-out");
             stockOut.style.display="block";
@@ -208,7 +207,7 @@ function sideBarSummary(){
     sideBarCategories=document.querySelector('.sum-categories')
     sideBarTotal.innerHTML=`Total Stock Value: $ ${statisticsHandler("totalStockValue","allProducts")}`
     depletedResponse=statisticsHandler("depletedStocks","allProducts")
-    console.log(depletedResponse)
+    
     depletedResponse.forEach((item,index)=>{
         let div=document.createElement('li');
         div.innerHTML=item.substring(0,18);
@@ -223,7 +222,7 @@ function topStatsHandler(){
     let totalCategories = 4;
     let totalItems = statisticsHandler('totalItems','allProducts')
     let position = document.querySelectorAll('.main-res')
-    console.log(position)
+   
     position[0].innerHTML=totalCategories;
     position[1].innerHTML=totalItems;
     position[2].innerHTML=totalStockValue
@@ -260,7 +259,7 @@ function tableFillHandler(){     //fills the table with data from localstorage
         rowList[5].innerHTML=allProductsPlus[i].price;
         rowList[6].innerHTML=allProductsPlus[i].quantity;
         rowList[7].className= colorLabel(allProductsPlus[i].quantity,i)
-        console.log(allProductsPlus[i].quantity)
+       
         
      }
 }
@@ -273,7 +272,7 @@ function htmlGenerator(i){  //used to generate new rows
     newRow.className = ' row-'+ i;
     document.querySelector('.row-template').appendChild(newRow);
 
-    createRowContent = `<td class="check"><input type="checkbox" class="check item${i}"></td>
+    createRowContent = `<td class="selectc"><input type="checkbox" class="check item${i}"></td>
                         <td class="rows"><div class="label-code item${i}"></div></td>
                         <td class="rows"><div class="category item${i}"></div></td>
                         <td class="rows"><div class="name item${i}"></div></td>
@@ -415,7 +414,6 @@ google.charts.setOnLoadCallback(drawChart);
 // draws it.
 function drawChart() {
     categoryObj = statisticsHandler('quantityByCategory','allProducts')
-    console.log(categoryObj)
   // Create the data table.
   var data = new google.visualization.DataTable();
   data.addColumn('string', 'Categories');
@@ -438,18 +436,29 @@ function drawChart() {
   chart.draw(data, options);
 }
 
-let resOpen = document.querySelector('.res-open')
+//let resOpen = document.querySelector('.res-open')
 let resClose = document.querySelector('.res-close')
 
-resOpen.addEventListener("click",(e)=>{
-    document.querySelector('.side-responsive').style.display="block"
-    document.querySelector('.side-menu').style.display="none"
+$(document).ready(function(){
+    $('.res-open').click(function(){
+        $('.side-menu').hide("slow");
+        $('.side-responsive').show("slow");
+    })
+    $('.res-close').click(function(){
+        $('.side-menu').show("slow");
+        $('.side-responsive').hide("slow");
+    })
 })
 
-resClose.addEventListener('click',(e)=>{ 
-        document.querySelector('.side-responsive').style.display='none'
-        document.querySelector('.side-menu').style.display='block'
-})
+// resOpen.addEventListener("click",(e)=>{
+//     document.querySelector('.side-responsive').style.display="block"
+//     document.querySelector('.side-menu').style.display="none"
+// })
+
+// resClose.addEventListener('click',(e)=>{ 
+//         document.querySelector('.side-responsive').style.display='none'
+//         document.querySelector('.side-menu').style.display='block'
+// })
 
 
 function displayAlert(count){
@@ -471,4 +480,15 @@ function displayAlert(count){
 }
 displayAlert()
 
-let checks = document.querySelectorAll('check')
+toDeleteArray=[]
+
+let checks = document.querySelectorAll('.check');
+checks.forEach(element=>{
+    element.addEventListener("click",(e)=>{
+       console.log(e.target);
+    })
+})
+
+function multiDelete(){
+
+}

@@ -343,8 +343,8 @@ border-radius: 50%;
 #item-qty,
 #item-price,
 #category-select{
-    margin-right: 20.8rem;
-    float: right;
+    margin-left: 7rem;
+    
     width: 20rem;
     padding: 0.5rem 0.5rem 0rem 0.5rem;
 }
@@ -353,9 +353,11 @@ label{
   padding: 0.5rem 0.5rem 0rem 0.5rem;
 }
 .add-new-item{
-    text-align: center;
+   
     margin-top: 2rem;
     color:#008baa ;
+    margin-left: 28rem;
+   
 }
 .add-new-item>button{
     margin-left: 8rem;
@@ -365,6 +367,7 @@ label{
     color: #008baa;
     width: 10rem;
     cursor: pointer;
+   
 }
 .add-new-item>button:hover{
     background-color: rgba(0, 0, 0, 0.123);
@@ -448,6 +451,10 @@ label{
     top: 1.2rem;
     color: rgba(128, 128, 128, 0.452);
 }
+.alerts{
+    display: inline;
+    position: relative;
+}
 .fa-bell-o{
     margin: 0.2 rem;
     color:#174292 ;
@@ -456,8 +463,8 @@ label{
 .bell-back{
     display: inline-block;
     position: absolute;
-    left: 64.2rem;
-    top: 0.5rem;
+    left: 16rem;
+    top: -1.3rem;
    border: solid 2px;
    padding: .3rem;
    border-radius: 50%;
@@ -477,4 +484,43 @@ label{
 }
 .selectb{
     display:none
+}
+@media only screen and (max-width: 1000px) {
+    .side-menu{
+        display: none;
+    }
+    .side-responsive{
+        display: block;
+    }
+    .res-close{
+        display: none;
+    }
+    #chart-div{
+        display: none;
+    }
+    .select,
+    .category,
+    .description,
+    .selecta,
+    .categorya,
+    .descriptiona,
+    .selectb,
+    #search,
+    .fa-search,
+    .radiobtn{
+        display: none;
+    }
+    .alerts{
+        margin-left: 10vw;
+    }
+    .graphs{
+        width: 70%;
+        margin-left: 15%;
+        right: 15%;
+        font-size: 7vw;
+    }
+    table{
+        
+        margin-right: 5%;
+    }
 }

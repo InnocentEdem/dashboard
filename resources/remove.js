@@ -245,7 +245,7 @@ function htmlGenerator(i){  //used to generate new rows
     newRow.className = ' row-'+ i;
     document.querySelector('.row-template').appendChild(newRow);
 
-    createRowContent = `<td class="rows"><input type="checkbox" class="check item${i}"></td>
+    createRowContent = `<td ><input type="checkbox" class="check item${i}"></td>
                         <td class="rows"><div class="label-code item${i}"></div></td>
                         <td class="rows"><div class="category item${i}"></div></td>
                         <td class="rows"><div class="name item${i}"></div></td>
@@ -303,9 +303,7 @@ function alertHandler(reqres,message,from,token){ //reqres is boolean, message i
             document.querySelectorAll('.do-this').forEach(element => { 
                 element.addEventListener('click', (e)=>{
                     var result = e.target.getAttribute('name');
-                    console.log(code)
                     window[sender](undefined,result,token);
-                    console.log(sender)
                    document.getElementById('alert-with-input').remove();
                    document.querySelector('.back-drop').className = ('back-drop')
                    

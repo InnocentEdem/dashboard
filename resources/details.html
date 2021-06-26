@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Item Details</title>
@@ -24,14 +25,16 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Details</h3>
-                    <input type="text" placeholder="Search">
-                    <div class="radiobtn">
-                        <input type="radio" checked name = "radio"> <span>Category</span> 
-                        <input type="radio" name = "radio"> <span>Code </span>
-                        <input type="radio" name = "radio"> <span>Name</span>
-                    </div> 
-                    <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
-                    <div class="details-container">
+                   <input type="search" placeholder="Search"><i class="fa fa-search"></i>
+                   <div class="radiobtn">
+                       <input type="radio" checked name = "radio"> <span>Category</span> 
+                       <input type="radio" name = "radio"> <span>Name</span>
+                   </div>
+                   <i class="fa fa-bell-o"onclick="window.location.assign('./message.html')"></i>  
+                   <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                   
+                </div>
+                <div class="details-container">
                         <div class="desc-image">
                             <img src="" alt="Product image" class="de-image">
                         </div>
@@ -58,9 +61,9 @@
                             </div>
                         </div>
                        
-                    </div>
+                </div>
                     
-               </div>
+               
             </div>
         </div>
     </div>
