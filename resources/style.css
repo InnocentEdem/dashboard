@@ -38,12 +38,13 @@
 
 }
 .side-responsive>div>i{
-color: white;
+color: #008baa;
 font-size: 2.1rem;
 margin-left: 0.3rem;
+
 }
 .side-responsive-fa>div>i{
-    color:white;
+    color:#008baa;
     font-size: 2.5rem;
     
 }
@@ -52,13 +53,17 @@ margin-left: 0.3rem;
     
 }
 .side-responsive-fa>div{
-    margin: 1.7rem;
+   margin-bottom: 1.5rem;
     margin-left: 0%;
+    text-align: center
 }
 .side-responsive{
     margin-top: 4.6rem;
     display: none;
     transition: display 1s;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
   
 }
 
@@ -121,7 +126,7 @@ cursor: pointer;
     
 }
 .hamburg>i{
-    color: white;
+    color: #008baa;
 }
 .side-menu{
     margin-top: 5rem;
@@ -160,8 +165,10 @@ cursor: pointer;
     
 }
 .summary{
-    color: ivory;
     margin: 0.4rem;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
    
 }
 .sum-header,
@@ -491,9 +498,10 @@ label{
     }
     .side-responsive{
         display: block;
+        z-index: 1000;
     }
     .res-close{
-        display: none;
+        display:none;
     }
     #chart-div{
         display: none;

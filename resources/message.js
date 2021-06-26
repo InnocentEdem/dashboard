@@ -23,4 +23,15 @@ msgContainer=document.querySelector('.the-body')
     
 }
       resetAlert()
+      
+      $(document).ready(function(){
+        $('.res-open').click(function(){
+            $('.side-menu').hide("slow");
+            $('.side-responsive').show("slow");
+        })
+        $('.res-close').click(function(){
+            $('.side-menu').show("slow");
+            $('.side-responsive').hide("slow");
+        })
+    })
    

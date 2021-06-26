@@ -437,7 +437,7 @@ function drawChart() {
 }
 
 //let resOpen = document.querySelector('.res-open')
-let resClose = document.querySelector('.res-close')
+//let resClose = document.querySelector('.res-close')
 
 $(document).ready(function(){
     $('.res-open').click(function(){

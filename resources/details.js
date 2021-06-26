@@ -42,3 +42,13 @@ localStorage.setItem('alertCounter',JSON.stringify(counter))
 
 }
 displayAlert()
+$(document).ready(function(){
+  $('.res-open').click(function(){
+      $('.side-menu').hide("slow");
+      $('.side-responsive').show("slow");
+  })
+  $('.res-close').click(function(){
+      $('.side-menu').show("slow");
+      $('.side-responsive').hide("slow");
+  })
+})

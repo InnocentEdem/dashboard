@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Item Details</title>
@@ -15,11 +16,20 @@
     <div class="container">
        
         <div class="main">
+            <div class="side-responsive">
+                <div> <i class="fa fa-bars res-close"></i></div> 
+                <div class="side-responsive-fa">
+                <div> <i class="fa fa-dashboard mres" onclick="window.location.assign('../index.html')"></i></div>
+                <div> <i class="fa fa-plus mres" onclick="window.location.assign('./new.html')"></i></div>
+                <div><i class="fa fa-remove mres" onclick="window.location.assign('./remove.html')"></i></div>
+                <div><i class="fa fa-commenting-o mres" onclick="window.location.assign('./message.html')" ></i></div>    
+                </div>   
+            </div>    
             <div class="side-menu">
+                <div class="hamburg"><i class="fa fa-bars res-open"  ></i></div>
                 <a href="../index.html">Dashboard</a>
                 <a href="new.html">New</a>
                 <a href="remove.html">Remove</a>
-        
                 <a href="message.html">Message Center</a>
             </div>
             <div class="content">
