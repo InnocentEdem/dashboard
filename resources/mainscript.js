@@ -276,7 +276,7 @@ function htmlGenerator(i){  //used to generate new rows
                         <td class="rows"><div class="label-code item${i}"></div></td>
                         <td class="rows"><div class="category item${i}"></div></td>
                         <td class="rows"><div class="name item${i}"></div></td>
-                        <td class="rows"><div class="description item${i}"></div></td>
+                        <td class="rows"><div class="descriptions item${i}"></div></td>
                         <td class="rows"><div class="label-code item${i}">price</div></td>
                         <td class="rows"><div class="quantity item${i}"></div></td>
                         <td class="rows"><div class=" item${i}"><div class="label"></div></div></td> 

@@ -44,11 +44,13 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Dashboard</h3>
-                    <input type="search" placeholder="Search" id="search"><i class="fa fa-search"></i>
-                    <div class="radiobtn">
-                        <input type="radio" checked name = "radio"> <span>Category</span> 
-                        <input type="radio" name = "radio"> <span>Name</span>
-                    </div>
+                    <div class="search-container">   
+                        <input type="search" placeholder="Search" id="search"><i class="fa fa-search"></i>
+                        <div class="radiobtn">
+                            <input type="radio" checked name = "radio"> <span>Category</span> 
+                            <input type="radio" name = "radio"> <span>Name</span>
+                        </div>
+                    </div> 
                     <div class="alerts">
                     <i class="fa fa-bell-o"onclick="window.location.assign('./resources/message.html')"></i>  
                     <span class ="bell-back" onclick="window.location.assign('./resources/message.html')">0</span>
@@ -86,7 +88,7 @@
                          <td><div class="serial"></div></td>
                          <td><div class="category"></div></td>
                          <td><div class="name"></div></td>
-                         <td><div class="description"></div></td>
+                         <td><div class="descriptions"></div></td>
                          <td></td>
                          <td><div class="quantity"></div></td>
                          <td><div class="label-code"></div></td>

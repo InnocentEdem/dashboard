@@ -45,38 +45,42 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Remove</h3>
-                    <input type="text" placeholder="Search">
+                   <div class="search-container">   
+                    <input type="search" placeholder="Search" id="search"><i class="fa fa-search"></i>
                     <div class="radiobtn">
                         <input type="radio" checked name = "radio"> <span>Category</span> 
-                        <input type="radio" name = "radio"> <span>Code </span>
                         <input type="radio" name = "radio"> <span>Name</span>
                     </div>
+                </div> 
                    
-                    <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                    <div class="alerts">
+                        <i class="fa fa-bell-o"onclick="window.location.assign('./message.html')"></i>  
+                        <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                        </div>
                 
                </div>
 
                <table>
                  <thead>
                     <tr class="table-head">
-                     <td><div class="selecta"></div></td>
-                     <td><div class="codea">Code</div></td>
-                     <td><div class="categorya">Category</div></td>
-                     <td><div class="namea">Name</div></td>                  
-                     <td><div class="descriptiona">Description</div></td>
-                     <td><div class="pricea">Price</div></td>
-                     <td><div class="quantitya">Qty</div></td>
-                     <td><div class="labela">label</div></td>                   
-                     <td><div class="edita"></div></td> 
+                        <td><div class="selecta"></div></td>
+                        <td><div class="codea">Code</div></td>
+                        <td><div class="categorya">Category</div></td>
+                        <td><div class="namea">Name</div></td>                  
+                        <td><div class="descriptiona">Description</div></td>
+                        <td><div class="pricea">Price</div></td>
+                        <td><div class="quantitya">Qty</div></td>
+                        <td><div class="labela">label</div></td>                   
+                        <td><div class="edita"></div></td> 
                     </tr>
                 </thead>
                  <tbody class="row-template">
                      <tr class="row-">
-                         <td><div class="select"></div></td>
-                         <td><div class="serial"></div></td>
+                         <td><div ></div></td>
+                         <td><div></div></td>
                          <td><div class="name"></div></td>
                          <td><div class="category"></div></td>
-                         <td><div class="description"></div></td>
+                         <td><div class="descriptions"></div></td>
                          <td><div class="quantity"></div></td>
                          <td></td>
                          <td><div ></div></td>

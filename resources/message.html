@@ -36,14 +36,17 @@
             <div class="content">
                 <div class="content-header">
                    <h3> Alerts</h3>
-                    <input type="text" placeholder="Search">
+                   <div class="search-container">   
+                    <input type="search" placeholder="Search" id="search"><i class="fa fa-search"></i>
                     <div class="radiobtn">
                         <input type="radio" checked name = "radio"> <span>Category</span> 
-                        <input type="radio" name = "radio"> <span>Code </span>
                         <input type="radio" name = "radio"> <span>Name</span>
                     </div>
-                    <i class="fa fa-bell-o"onclick="window.location.assign('./message.html')"></i>  
-                    <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                </div> 
+                    <div class="alerts">
+                        <i class="fa fa-bell-o"onclick="window.location.assign('./message.html')"></i>  
+                        <span class ="bell-back" onclick="window.location.assign('./message.html')">0</span>
+                        </div>
                 
                </div>
                <div class="messages">

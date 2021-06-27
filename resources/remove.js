@@ -245,14 +245,14 @@ function htmlGenerator(i){  //used to generate new rows
     newRow.className = ' row-'+ i;
     document.querySelector('.row-template').appendChild(newRow);
 
-    createRowContent = `<td ><input type="checkbox" class="check item${i}"></td>
+    createRowContent = `<td class="selectc"><input type="checkbox" class="check item${i}"></td>
                         <td class="rows"><div class="label-code item${i}"></div></td>
                         <td class="rows"><div class="category item${i}"></div></td>
                         <td class="rows"><div class="name item${i}"></div></td>
-                        <td class="rows"><div class="description item${i}"></div></td>
+                        <td class="rows"><div class="descriptions item${i}"></div></td>
                         <td class="rows"><div class="label-code item${i}">price</div></td>
                         <td class="rows"><div class="quantity item${i}"></div></td>
-                        <td><div class=" item${i}"><div class="label"></div></div></td> 
+                        <td class="rows"><div class=" item${i}"><div class="label"></div></div></td> 
                         <td><div><i id="delete${i}" class="fa fa-trash delete" aria-hidden="true"></i></div></td>`
 document.querySelector(`.row-${i}`).innerHTML = createRowContent;
 

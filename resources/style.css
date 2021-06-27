@@ -236,9 +236,19 @@ cursor: pointer;
 .content-header>h3,
 .content-header>input{
     display: inline-block;
+   
+}
+.content-header>h3{
+    width: 5rem;
+}
+.search-container{
+    display: inline-block;
+    position: relative;
+    
+   
 }
 
-.content-header>input{
+.content-header>.search-container>input{
     display: inline-block;
     padding-top:0.5rem ;
     font-size: 1rem;
@@ -246,6 +256,7 @@ cursor: pointer;
     border: solid 1px gray;
     border-radius: 5px;
 }
+
 .radiobtn{
     display: inline-block;
     font-size: 0.6rem;
@@ -394,6 +405,7 @@ label{
     display: flex; 
     width: 70rem;
     margin-top: 6rem;
+    white-space: normal;
 }
 .other-info,
 .desc-image{
@@ -446,18 +458,19 @@ label{
 .fa:hover{
     color: brown;
 }
+.fa-search{
+    position: absolute;
+  
+    left: 31rem;
+    top: 0.3rem;
+    color: rgba(128, 128, 128, 0.452);
+}
   
 .messages{
     margin: 10rem;
     margin-top: 4rem;
 }
-.fa-search{
-    position: absolute;
-  
-    left: 37rem;
-    top: 1.2rem;
-    color: rgba(128, 128, 128, 0.452);
-}
+
 .alerts{
     display: inline;
     position: relative;
@@ -508,18 +521,18 @@ label{
     }
     .select,
     .category,
-    .description,
+    .descriptions,
     .selecta,
     .categorya,
     .descriptiona,
-    .selectb,
-    #search,
-    .fa-search,
-    .radiobtn{
+    .selectb
+    {
         display: none;
     }
     .alerts{
-        margin-left: 10vw;
+        margin-left: 0vw;
+       
+       
     }
     .graphs{
         width: 70%;
@@ -530,5 +543,36 @@ label{
     table{
         
         margin-right: 5%;
+    }
+    .content-header>h3{
+        width: 1rem;
+    }
+    .details-container{
+        display: block;
+        white-space: normal;
+    }
+    .content-header>.search-container>input{
+        display: inline-block;
+        padding-top:0.5rem ;
+        font-size: 1rem;
+        margin-left: 5rem;
+        
+    }
+    .fa-search{
+        position: absolute;
+      
+        left: 16rem;
+        top: 0.3rem;
+        color: rgba(128, 128, 128, 0.452);
+       
+    }
+    .fa-bell-o{
+        
+        margin-left: 2rem;
+    }
+    .bell-back{
+       
+        left: 3rem;
+      
     }
 }
